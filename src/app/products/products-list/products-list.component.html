@@ -1,0 +1,44 @@
+<ng-container *ngIf="products$ | async as products">
+  <button class="btn btn-success mt-2" routerLink="add">+ New Product</button>
+  <ng-container *ngIf="products.length > 0; else noData">
+    <table class="table table-striped table-hover mt-4">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Brand</th>
+          <th>Price</th>
+          <th>CreatedOn</th>
+          <th>CreatedBy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="list" (click)="goToDetail(product.id)" *ngFor="let product of products; index as i">
+          <td>{{i+1}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.brand}}</td>
+          <td>{{product.price | currency}}</td>
+          <td>{{product.createdOn | date}}</td>
+          <td class="fw-bold">{{product.createdByUser.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex flex-column mt-5" *ngIf="statistics">
+      <h4>Statistics</h4>
+      <div class="bg-light row mt-3">
+        <div class="d-flex justify-content-around align-items-center w-100">
+          <p class="mb-0"><span class="fw-bold">Active Products: </span>{{statistics.activeProducts}}</p>
+          <p class="mb-0"><span class="fw-bold">Expensive Products (> $1000): </span>{{statistics.lessThan1000Products}}</p>
+          <p class="mb-0"><span class="fw-bold">Cheapper Products (< $1000): </span>{{statistics.moreThan1000Products}}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #noData>
+  <div class="d-flex justify-content-center view">
+    <h5>Empty data</h5>
+  </div>
+</ng-template>

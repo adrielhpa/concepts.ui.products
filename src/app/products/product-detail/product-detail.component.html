@@ -1,0 +1,65 @@
+<div class="row justify-content-center mt-2 h-100" *ngIf="formGroup && product" [formGroup]="formGroup">
+  <div class="col-6">
+    <div class="d-flex justify-content-between align-items-center">
+      <h3 class="my-2">{{product.name}}</h3>
+      <button class="btn btn-outline" routerLink="/products">Back</button>
+    </div>
+    <div class="row justify-content-between align-items-center">
+      <div class="d-flex flex-column col">
+        <label for="name">Name: </label>
+        <input name="name" formControlName="name">
+      </div>
+      <div class="d-flex flex-column col">
+        <label for="brand">Brand:</label>
+        <input type="text" formControlName="brand">
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-center">
+      <div class="d-flex flex-column col-3">
+        <label for="price">Price: </label>
+        <input name="price" formControlName="price">
+      </div>
+      <div class="d-flex flex-column col">
+        <label for="createdOn">CreatedOn:</label>
+        <input type="datetime-local" formControlName="createdOn">
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center col">
+      <label for="description">Description:</label>
+      <textarea name="description" formControlName="description"></textarea>
+    </div>
+       <h3 class="mt-4">Creator Data:</h3>
+    <div class="row justify-content-between align-items-center">
+      <div class="d-flex flex-column col">
+        <label for="productCreatorName">Name: </label>
+        <input name="name" formControlName="productCreatorName">
+      </div>
+      <div class="d-flex flex-column col-2">
+        <label for="productCreatorAge">Age:</label>
+        <input type="number" formControlName="productCreatorAge">
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-center">
+      <div class="d-flex flex-column col">
+        <label for="productCreatorAdress">Adress: </label>
+        <input name="productCreatorAdress" formControlName="productCreatorAdress">
+      </div>
+      <div class="d-flex flex-column col-4">
+        <label for="productCreatorCity">City:</label>
+        <input type="text" formControlName="productCreatorCity">
+      </div>
+    </div>
+    <div class="d-flex flex-column col">
+      <label for="productCreatorUsername">Username:</label>
+      <input type="text" formControlName="productCreatorUsername">
+    </div>
+
+
+    <div class="d-flex justify-content-between mt-3">
+      <button class="btn btn-primary" routerLink="edit">
+        Edit Product
+      </button>
+      <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete Product</button>
+    </div>
+  </div>
+</div>
