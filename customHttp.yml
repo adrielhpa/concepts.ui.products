@@ -7,7 +7,7 @@ functions:
           method: GET, POST, PUT, DELETE
           path: /
           cors:
-            origin: '*'
+            origin: 'https://master.d3bsqhotd35heu.amplifyapp.com/'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -19,5 +19,4 @@ functions:
               - Text
               - Access-Control-Allow-AnyHeaders
               - Access-Control-Allow-AnyOrigin
-              - Access-Control-Allow-AnyCredentials
             allowCredentials: false
